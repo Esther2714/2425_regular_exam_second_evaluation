@@ -1,0 +1,17 @@
+services:
+  apache:
+    build: ./php
+    ports:
+      - 8000:80
+    networks:
+      examnet:
+        ipv4_address: 192.168.150.200
+        aliases:
+          - apacheserver
+networks:
+  examnet:
+    name: examnet
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.150.0.24
