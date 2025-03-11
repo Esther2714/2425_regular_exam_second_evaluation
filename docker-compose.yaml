@@ -1,0 +1,17 @@
+services:
+  nodeserver:
+    build: ./php
+    ports:
+      - 3000:3000
+    networks:
+      nodenet:
+        ipv4_address: 192.168.151.201
+        aliases:
+          - nodeserver
+networks:
+  nodenet:
+    name: nodenet
+    ipam:
+      driver: default
+      config:
+        - subnet:192.168.151.0/24
